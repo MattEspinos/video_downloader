@@ -1,8 +1,8 @@
 from pytube import YouTube
 
-VERSION = 1.0
+VERSION = 1.1
 """
-Version 1.0
+Version 1.1
 This application will download a youtube video from a specified URL. The video will be
 downloaded in the highest quality. Note that downloading YouTube videos may violate YouTube's terms of service, 
 so make sure you have the necessary permissions before downloading any content. 
@@ -18,7 +18,7 @@ def download(yt):
     streams = yt.streams.get_highest_resolution()
     streams.download()
 
-def fetch_video():
+def fetch_youtube_video():
     again = 'y'
     try:
             while again.lower() == 'y' or again.lower() == 'yes':
@@ -43,13 +43,17 @@ def fetch_video():
 
 
     except:
-         print("An error occured")
+         print("An error has occured. Either an invalid video link or an invalid file path.\n")
+         retry = str(input("Would you like to try again? (Y/n):\t"))
+
+         if retry.lower() != 'n':
+              fetch_youtube_video()
 
 
 def main():
-    print(VERSION)
+    print("Version: ", VERSION)
     print("Welcome to the Video Downloader\n")
 
-    fetch_video()
+    fetch_youtube_video()
 
 main()
