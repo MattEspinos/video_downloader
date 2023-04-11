@@ -35,7 +35,7 @@ python video_downloader.py https://www.youtube.com/watch?v=dQw4w9WgXcQ -p ~/Down
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Disclaimer
-Note that downloading YouTube or Instagram videos is against thier terms of service, 
+Note that downloading YouTube or Instagram videos is against their terms of service, 
 and you should not use this project to engage in any activities that violate those terms. 
 This application is intended for personal use only and not for any commercial or illegal activities.
 
