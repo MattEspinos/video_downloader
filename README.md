@@ -19,15 +19,13 @@ Before using Video Downloader, you need to have the following installed:
 To download a video, run the video_downloader.py script with the following options:
 usage: video_downloader.py [-h] [-p PATH] [-t {youtube,instagram}] url
 
-Download a video from YouTube, or Instagram.
-
 positional arguments:
-  url                   URL of the video.
+  * url  -> URL of the video.
 
 optional arguments:
-  -h, --help            show this help message and exit
-  -p PATH, --path PATH  Path to save the video.
-  -t {youtube,instagram}, --type {youtube,instagram}
+  * -h, --help            show this help message and exit
+  * -p PATH, --path PATH  Path to save the video.
+  * -t {youtube,instagram}, --type {youtube,instagram}
                         Platform to download from ('youtube', or 'instagram').
                         Default is 'youtube'.
 For example, to download a video from YouTube:
@@ -35,6 +33,11 @@ python video_downloader.py https://www.youtube.com/watch?v=dQw4w9WgXcQ -p ~/Down
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Disclaimer
+Note that downloading YouTube or Instagram videos is against thier terms of service, 
+and you should not use this project to engage in any activities that violate those terms. 
+This application is intended for personal use only and not for any commercial or illegal activities.
 
 ## Acknowledgments
 [PyTube](https://pytube.io/en/latest/)

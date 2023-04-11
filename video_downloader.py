@@ -4,6 +4,10 @@ import instaloader
 
 VERSION = "1.3"
 
+"""Note that downloading YouTube or Instagram videos is against thier terms of service, 
+and you should not use this project to engage in any activities that violate those terms. 
+This application is intended for personal use only and not for any commercial or illegal activities."""
+
 def download_video(yt, path=None):
     if path:
         streams = yt.streams.get_highest_resolution()
