@@ -1,25 +1,41 @@
 # Video Downloader
-A Python command-line application to download videos from YouTube.
+Video Downloader is a Python command-line application that allows you to download videos from YouTube and Instagram.
 
-## Requirements
-Python 3.x
-pytube library
+# Prerequisites
+Before using Video Downloader, you need to have the following installed:
+
+* Python 3.5 or later
 
 ## Installation
-1. Install the required packages using pip:
-pip install -r requirements.txt
-2. Run the script using Python:
-python video_downloader.py <url> [-p <path>]
+1. Clone the repository or download the source code.
+
+2. Install the dependencies using pip and the requirements.txt file:
+    * pip install -r requirements.txt
+
+3. Run the application using Python:
+    * python video_downloader.py [options]
 
 ## Usage
-Run the script from the command line with the following command:
-python video_downloader.py [URL] [-p PATH]
-[URL] - The URL of the YouTube video.
-[-p PATH] (optional) - The path where the video will be downloaded. If not provided, the video will be downloaded to the current working directory.
+To download a video, run the video_downloader.py script with the following options:
+usage: video_downloader.py [-h] [-p PATH] [-t {youtube,instagram}] url
 
-## Example
-python video_downloader.py https://www.youtube.com/watch?v=dQw4w9WgXcQ -p C:\users\Downloads
-This will download the video with the URL https://www.youtube.com/watch?v=dQw4w9WgXcQ to the C:\users\Downloads folder.
+Download a video from YouTube, or Instagram.
 
-## Notes
-Downloading videos from YouTube may violate the terms of service of these platforms. Make sure you have the necessary permissions before downloading any content.
+positional arguments:
+  url                   URL of the video.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -p PATH, --path PATH  Path to save the video.
+  -t {youtube,instagram}, --type {youtube,instagram}
+                        Platform to download from ('youtube', or 'instagram').
+                        Default is 'youtube'.
+For example, to download a video from YouTube:
+python video_downloader.py https://www.youtube.com/watch?v=dQw4w9WgXcQ -p ~/Downloads/videos
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+[PyTube](https://pytube.io/en/latest/)
+[Instaloader](https://instaloader.github.io/)
