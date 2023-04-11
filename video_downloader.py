@@ -1,59 +1,44 @@
+import argparse
 from pytube import YouTube
 
-VERSION = 1.1
+VERSION = 1.2
 """
-Version 1.1
+Version 1.2
 This application will download a youtube video from a specified URL. The video will be
 downloaded in the highest quality. Note that downloading YouTube videos may violate YouTube's terms of service, 
 so make sure you have the necessary permissions before downloading any content. 
 """
 
-def download(yt, path):
-     #With path
-     streams = yt.streams.get_highest_resolution()
-     streams.download(output_path=path)
+def download_video(yt, path=None):
+    if path:
+        streams = yt.streams.get_highest_resolution()
+        streams.download(output_path=path)
+    else:
+        yt.streams.get_highest_resolution().download()
+    print("Video downloaded successfully!")
 
-def download(yt):
-    #Without path
-    streams = yt.streams.get_highest_resolution()
-    streams.download()
-
-def fetch_youtube_video():
-    again = 'y'
+def fetch_youtube_video(url, path=None):
     try:
-            while again.lower() == 'y' or again.lower() == 'yes':
-                url = str(input("Enter the URL of the YouTube video:\t"))
-                yt = YouTube(url)
-                print("Title:", yt.title)
-                print("Length:", yt.length, "seconds")
-                print("Author:", yt.author)
+        yt = YouTube(url)
+        print("Title:", yt.title)
+        print("Length:", yt.length, "seconds")
+        print("Author:", yt.author)
 
-                path = str(input("Enter path for download video to go to. Leave blank for same path as this file:\t"))
+        download_video(yt, path)
 
-                if(path):
-                    download(yt, path)
-                else:
-                    download(yt)
-                
-                print("Video downloaded successfuly!\n")
-                again = str(input("Would you like to download another video? (Y/n):\t"))
-
-                if(not again):
-                     again = 'y'
-
-
-    except:
-         print("An error has occured. Either an invalid video link or an invalid file path.\n")
-         retry = str(input("Would you like to try again? (Y/n):\t"))
-
-         if retry.lower() != 'n':
-              fetch_youtube_video()
-
+    except Exception as e:
+        print("An error has occurred:", e)
 
 def main():
-    print("Version: ", VERSION)
+    parser = argparse.ArgumentParser(description="Download a YouTube video.")
+    parser.add_argument("url", help="URL of the YouTube video.")
+    parser.add_argument("-p", "--path", help="Path to save the video.")
+    args = parser.parse_args()
+
+    print("Version:", VERSION)
     print("Welcome to the Video Downloader\n")
 
-    fetch_youtube_video()
+    fetch_youtube_video(args.url, args.path)
 
-main()
+if __name__ == "__main__":
+    main()
