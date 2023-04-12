@@ -2,7 +2,7 @@ import argparse
 from pytube import YouTube
 import instaloader
 
-VERSION = "1.3"
+VERSION = "1.4"
 
 """Note that downloading YouTube or Instagram videos is against their terms of service, 
 and you should not use this project to engage in any activities that violate those terms. 
@@ -10,19 +10,16 @@ This application is intended for personal use only and not for any commercial or
 
 def download_video(yt, path=None):
     if path:
-        streams = yt.streams.get_highest_resolution()
-        streams.download(output_path=path)
+        yt.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first().download(output_path=path)
     else:
-        yt.streams.get_highest_resolution().download()
+        yt.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first().download()
     print("Video downloaded successfully!")
 
 def fetch_video(url, path=None, platform="youtube"):
     try:
         if platform == "youtube":
             yt = YouTube(url)
-            print("Title:", yt.title)
-            print("Length:", yt.length, "seconds")
-            print("Author:", yt.author)
+            print("Video found! Downloading...")
             download_video(yt, path)
         
         elif platform == "instagram":
