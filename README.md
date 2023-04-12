@@ -10,14 +10,21 @@ Before using Video Downloader, you need to have the following installed:
 1. Clone the repository or download the source code.
 
 2. Install the dependencies using pip and the requirements.txt file:
-    * pip install -r requirements.txt
+  ```
+  pip install -r requirements.txt
+  ```
 
 3. Run the application using Python:
-    * python video_downloader.py [options]
+  ```
+  python video_downloader.py [options]
+  ```
 
 ## Usage
 To download a video, run the video_downloader.py script with the following options:
-usage: video_downloader.py [-h] [-p PATH] [-t {youtube,instagram}] url
+usage: 
+```
+video_downloader.py [-h] [-p PATH] [-t {youtube,instagram}] url
+```
 
 positional arguments:
   * url  -> URL of the video.
@@ -29,7 +36,9 @@ optional arguments:
                         Platform to download from ('youtube', or 'instagram').
                         Default is 'youtube'.
 For example, to download a video from YouTube:
+```
 python video_downloader.py https://www.youtube.com/watch?v=dQw4w9WgXcQ -p ~/Downloads/videos
+```
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
