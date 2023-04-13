@@ -1,5 +1,5 @@
 # Video Downloader
-Video Downloader is a Python command-line application that allows you to download videos from YouTube and Instagram.
+Video Downloader is a Python command-line and GUI application that allows you to download videos from YouTube and Instagram.
 
 ## Prerequisites
 Before using Video Downloader, you need to have the following installed:

@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import filedialog
 from pytube import YouTube, Playlist
 
-VERSION = "1.0"
+VERSION = "1.1"
 
 """Note that downloading YouTube or Instagram videos is against their terms of service, 
 and you should not use this project to engage in any activities that violate those terms. 
@@ -25,7 +25,8 @@ def download_video():
         stream.download(save_path)
         status_label.config(text="Download Successful!")
     except Exception as e:
-        status_label.config(text="Download Failed!")
+        error = "Download Failed! " + e
+        status_label.config(text=error)
 
 def download_playlist():
     playlist_url = playlist_entry.get()
@@ -41,12 +42,15 @@ def download_playlist():
             stream.download(save_path)
         status_label.config(text="Download Successful!")
     except Exception as e:
-        status_label.config(text="Download Failed!")
+        error = "Download Failed! " + e
+        status_label.config(text=error)
 
+#Initialize GUI root
 root = tk.Tk()
-title = "Video Downloader GUI Version" + str(VERSION)
+title = "Video Downloader GUI Version: " + str(VERSION)
 root.title(title)
 
+#Labels
 url_label = tk.Label(root, text="YouTube Video URL:")
 url_label.grid(row=0, column=0, padx=5, pady=5)
 
