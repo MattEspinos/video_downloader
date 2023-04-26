@@ -5,6 +5,7 @@ Video Downloader is a Python command-line and GUI application that allows you to
 Before using Video Downloader, you need to have the following installed:
 
 * Python 3.5 or later
+* pip
 
 ## Installation
 1. Clone the repository or download the source code.
