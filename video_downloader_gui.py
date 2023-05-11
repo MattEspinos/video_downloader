@@ -25,8 +25,9 @@ def download_video():
         stream.download(save_path)
         status_label.config(text="Download Successful!")
     except Exception as e:
-        error = "Download Failed! " + e
+        error = "Download Failed! Check console for more information."
         status_label.config(text=error)
+        print(e)
 
 def download_playlist():
     playlist_url = playlist_entry.get()
@@ -42,8 +43,9 @@ def download_playlist():
             stream.download(save_path)
         status_label.config(text="Download Successful!")
     except Exception as e:
-        error = "Download Failed! " + e
+        error = "Download Failed! Check console for more information."
         status_label.config(text=error)
+        print(e)
 
 #Initialize GUI root
 root = tk.Tk()
