@@ -2,6 +2,12 @@ import tkinter, customtkinter
 from pytube import YouTube
 from tkinter import messagebox, filedialog
 
+VERSION = "1.0"
+
+"""Note that downloading YouTube or Instagram videos is against their terms of service, 
+and you should not use this project to engage in any activities that violate those terms. 
+This application is intended for personal use only and not for any commercial or illegal activities."""
+
 #Functions
 def startDownload():
     try:
