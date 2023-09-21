@@ -1,63 +1,62 @@
-# Video Downloader
-Video Downloader is a Python command-line and GUI application that allows you to download videos from YouTube and Instagram.
+# YouTube Video Downloader
 
-## Prerequisites
-Before using Video Downloader, you need to have the following installed:
+**Version:** 1.1
 
-* Python 3.5 or later
-* pip
+A simple GUI-based YouTube video downloader built with Python, tkinter, and PyTube. This program allows you to easily download YouTube videos in MP4 format, selecting the highest available resolution.
+
+**Disclaimer:** Downloading YouTube videos may violate YouTube's Terms of Service. This application is intended for personal use only. Be sure to respect YouTube's policies and use this tool responsibly.
+
+## Features
+
+- Download YouTube videos in MP4 format.
+- Choose the save location for downloaded videos.
+- Real-time download progress tracking.
+- User-friendly GUI interface.
 
 ## Installation
-1. Clone the repository or download the source code.
 
-2. Install the dependencies using pip and the requirements.txt file:
-  ```
-  pip install -r requirements.txt
-  ```
+1. **Python**: Ensure you have Python 3.x installed on your system. If not, you can download it from the [official Python website](https://www.python.org/downloads/).
 
-3. Run the application using Python:
-  ```
-  python video_downloader.py [options]
-  ```
+2. **Required Packages**: Install the necessary Python packages using pip:
 
-## Usage
-### video_downloader.py
-To download a video, run the video_downloader.py script with the following options:
-usage: 
-```
-video_downloader.py [-h] [-p PATH] [-t {youtube,instagram}] url
-```
+   ```shell
+   pip install pytube customtkinter
+   ```
 
-positional arguments:
-  * url  -> URL of the video.
+3. **Running the Program**: Run the `youtube_video_downloader.py` script to start the YouTube Video Downloader.
 
-optional arguments:
-  * -h, --help            show this help message and exit
-  * -p PATH, --path PATH  Path to save the video.
-  * -t {youtube,instagram}, --type {youtube,instagram}
-                        Platform to download from ('youtube', or 'instagram').
-                        Default is 'youtube'.
-For example, to download a video from YouTube:
-```
-python video_downloader.py https://www.youtube.com/watch?v=dQw4w9WgXcQ -p ~/Downloads/videos
-```
-### video_downloader_gui.py
-1. Open the program by running python youtube_downloader.py in your terminal. Or by clicking on the Python file
-2. Enter the URL of a YouTube video or playlist in the appropriate entry field.
-3. (Optional) Enter a path to save the downloaded files to in the "Save Video To" entry field. If left blank, the files will be saved to the current directory.
-4. Click the "Download Video" button to download a single video, or the "Download Playlist" button to download a whole playlist.
-5. If the download is successful, a "Download Successful!" message will be displayed in the program. If the download fails, a "Download Failed!" message will be displayed.
-- Note that the program will download videos in the highest available quality in .mp4 format. If the video is not available in .mp4 format, the program will not be able to download it. If you encounter any issues with the program, make sure you have installed Python and PyTube correctly, and that you have a stable internet connection.
-- Currently only supports YouTube.
+   ```shell
+   python youtube_video_downloader.py
+   ```
+
+4. **Executable (Optional)**: An executable (`.exe`) version of the program can be generated using PyInstaller. Execute the following command to create an executable:
+
+   ```shell
+   pyinstaller --onefile youtube_video_downloader.py
+   ```
+
+   The executable will be available in the `dist` folder.
+
+## How to Use
+
+1. Launch the program by running `youtube_video_downloader.py`.
+
+2. Paste a valid YouTube video URL into the "Insert a YouTube Video Link" field.
+
+3. Optionally, specify a folder to save the downloaded video in the "Save Video To" field or use the "Browse" button to select a folder.
+
+4. Click the "Download" button to start downloading the video.
+
+5. The download progress will be displayed in real-time with a progress bar and percentage.
+
+6. Once the download is complete, you'll see a "Download Complete!" message.
 
 ## License
-This project is licensed under the MIT License - see the LICENSE file for details.
 
-## Disclaimer
-Note that downloading YouTube or Instagram videos is against their terms of service, 
-and you should not use this project to engage in any activities that violate those terms. 
-This application is intended for personal use only and not for any commercial or illegal activities.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
-[PyTube](https://pytube.io/en/latest/)
-[Instaloader](https://instaloader.github.io/)
+
+- [Python](https://www.python.org/): The programming language used for this project.
+- [PyTube](https://pytube.io/): Used for downloading YouTube videos.
+- [customtkinter](https://pypi.org/project/customtkinter/): A custom tkinter package used for enhancing the GUI.
