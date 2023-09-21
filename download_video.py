@@ -2,7 +2,7 @@ import tkinter, customtkinter
 from pytube import YouTube
 from tkinter import messagebox, filedialog
 
-VERSION = "1.0"
+VERSION = "1.1"
 
 """Note that downloading YouTube or Instagram videos is against their terms of service, 
 and you should not use this project to engage in any activities that violate those terms. 
@@ -39,8 +39,11 @@ def on_progress(stream, chunk, bytes_remaining):
     progressBar.set(float(percentage_of_completion) / 100)
 
 def browse_folder_path():
+    path_link.configure(state='normal')
     folder_selected = filedialog.askdirectory()
+    path_link.delete(0, len(path_link.get()))
     path_link.insert(0, folder_selected)
+    path_link.configure(state='readonly')
 
 #System Settings
 customtkinter.set_appearance_mode('System')
@@ -72,7 +75,7 @@ folder_label.grid(row=2, column=0, padx=10, pady=(10,50), sticky="nsew")
 
 #Folder Link Input
 folder_path = tkinter.StringVar()
-path_link = customtkinter.CTkEntry(app, width=300, height=40, textvariable=folder_path)
+path_link = customtkinter.CTkEntry(app, width=300, height=40, textvariable=folder_path, state='disabled')
 path_link.grid(row=2, column=1, pady=(10,50), sticky="ew")
 
 #Browse Button
