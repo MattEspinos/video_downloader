@@ -20,7 +20,7 @@ A simple GUI-based YouTube video downloader built with Python, tkinter, and PyTu
 2. **Required Packages**: Install the necessary Python packages using pip:
 
    ```shell
-   pip install pytube customtkinter
+   pip install -r requirements.txt
    ```
 
 3. **Running the Program**: Run the `youtube_video_downloader.py` script to start the YouTube Video Downloader.
@@ -29,17 +29,17 @@ A simple GUI-based YouTube video downloader built with Python, tkinter, and PyTu
    python youtube_video_downloader.py
    ```
 
-4. **Executable (Optional)**: An executable (`.exe`) version of the program can be generated using PyInstaller. Execute the following command to create an executable:
+**OR**
 
-   ```shell
-   pyinstaller --onefile youtube_video_downloader.py
+   Run the executable version:
+
+   ```bash
+   ./dist/YT_Video_Downloader.exe
    ```
-
-   The executable will be available in the `dist` folder.
 
 ## How to Use
 
-1. Launch the program by running `youtube_video_downloader.py`.
+1. Launch the program by running `download_video.py`.
 
 2. Paste a valid YouTube video URL into the "Insert a YouTube Video Link" field.
 
