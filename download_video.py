@@ -2,7 +2,7 @@ import tkinter, customtkinter
 from pytube import YouTube
 from tkinter import messagebox, filedialog
 
-VERSION = "1.1"
+VERSION = "1.2"
 
 """Note that downloading YouTube or Instagram videos is against their terms of service, 
 and you should not use this project to engage in any activities that violate those terms. 
@@ -16,7 +16,7 @@ def startDownload():
         ytObject = YouTube(ytLink, on_progress_callback=on_progress)
         video = ytObject.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first()
         
-        title.configure(text=ytObject.title, text_color='white')
+        yt_video_title.configure(text="Video Title: " + str(ytObject.title))
         finishLabel.configure(text='')
         
         if folder != '':
@@ -57,46 +57,50 @@ app.grid_columnconfigure((0, 2), weight=1)
 app.title('Youtube Video Downloader')
 
 #Title
-title = customtkinter.CTkLabel(app, text='YouTube Video Downloader')
+title = customtkinter.CTkLabel(app, text='YouTube Video Downloader', text_color='blue', font=(None, 32))
 title.grid(row=0, column=0, padx=10, sticky="nsew", columnspan=3)
+
+#Video Title Text
+yt_video_title = customtkinter.CTkLabel(app, text='', text_color='lightblue', font=(None, 15))
+yt_video_title.grid(row=1, column=0, padx=10, pady=(0,20), sticky="nsew", columnspan=3)
 
 #Insert Link Text
 yt_video_label = customtkinter.CTkLabel(app, text='Insert a YouTube Video Link:')
-yt_video_label.grid(row=1, column=0, padx=10, sticky="nsew")
+yt_video_label.grid(row=2, column=0, padx=10, sticky="nsew")
 
 #Link Input
 url_var = tkinter.StringVar()
 link = customtkinter.CTkEntry(app, width=300, height=40, textvariable=url_var)
-link.grid(row=1, column=1, sticky="ew")
+link.grid(row=2, column=1, sticky="ew")
 
 #Insert folder text
 folder_label = customtkinter.CTkLabel(app, text='Save Video To:')
-folder_label.grid(row=2, column=0, padx=10, pady=(10,50), sticky="nsew")
+folder_label.grid(row=3, column=0, padx=10, pady=(10,50), sticky="nsew")
 
 #Folder Link Input
 folder_path = tkinter.StringVar()
 path_link = customtkinter.CTkEntry(app, width=300, height=40, textvariable=folder_path, state='disabled')
-path_link.grid(row=2, column=1, pady=(10,50), sticky="ew")
+path_link.grid(row=3, column=1, pady=(10,50), sticky="ew")
 
 #Browse Button
 browse_button = customtkinter.CTkButton(app, text='Browse', command=browse_folder_path)
-browse_button.grid(row=2, column=2, padx=10, pady=(10,50))
+browse_button.grid(row=3, column=2, padx=10, pady=(10,50))
 
 #Finished Downloading
 finishLabel = customtkinter.CTkLabel(app, text='')
-finishLabel.grid(row=3, column=0, columnspan=3, sticky="ew")
+finishLabel.grid(row=4, column=0, columnspan=3, sticky="ew")
 
 #Progress percentage
 pPercentage = customtkinter.CTkLabel(app, text='0%')
-pPercentage.grid(row=4, column=0, columnspan=3)
+pPercentage.grid(row=5, column=0, columnspan=3)
 
 progressBar = customtkinter.CTkProgressBar(app, width=400)
 progressBar.set(0)
-progressBar.grid(row=5, column=0, padx=10, pady=10, columnspan=3)
+progressBar.grid(row=6, column=0, padx=10, pady=10, columnspan=3)
 
 #Download Button
 download = customtkinter.CTkButton(app, text='Download', command=startDownload)
-download.grid(row=6, column=0, padx=200, pady=50, columnspan=3)
+download.grid(row=7, column=0, padx=200, pady=50, columnspan=3)
 
 #Run App
 app.mainloop()

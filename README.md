@@ -1,6 +1,6 @@
 # YouTube Video Downloader
 
-**Version:** 1.1
+**Version:** 1.2
 
 A simple GUI-based YouTube video downloader built with Python, tkinter, and PyTube. This program allows you to easily download YouTube videos in MP4 format, selecting the highest available resolution.
 
