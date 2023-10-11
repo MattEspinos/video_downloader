@@ -1,0 +1,3 @@
+# Ignore Pyinstaller files
+build
+*.spec
